@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag</title>
+</head>
+
+<body>
+    <html>
+
+    <head>
+        <style>
+            #div1 {
+                width: 350px;
+                height: 500px;
+                padding: 10px;
+                border: 1px solid #aaaaaa;
+            }
+
+            #drag-1 {
+                border: 1px solid #aaaaaa;
+                width: 450px;
+                height: 500px;
+                padding: 10px;
+            }
+
+            .main {
+                display: flex;
+                gap: 20px;
+            }
+            #drag1a,
+            #drag2a,
+            #drag3a,
+            #drag4a {
+                width: 100px;
+                height: 80px;
+                background-color: rgb(136, 0, 255);
+                border: 1px solid;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <p>Drag the box into the rectangle:</p>
+
+        <div class="main">
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="drag1a" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag2a" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag3a" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag4a" draggable="true" ondragstart="drag(event)"></div>
+            </div>
+            <div id="drag-1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            </div>
+
+        </div>
+        <script>
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+            }   
+        </script>
+    </body>
+
+
+    </html>
+</body>
+
+</html>
+
+

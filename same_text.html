@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="search" id="search" style="height: 50px;width:300px;" oninput=get();><br><br>
+        <span>You type:<span id="result"></span></span>
+    </form>
+</body>
+<script>
+    const get=()=>{
+        let final=document.getElementById("search").value;
+        document.getElementById("result").innerHTML=final
+
+    }
+</script>
+</html>

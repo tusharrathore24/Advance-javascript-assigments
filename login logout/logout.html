@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logout</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      body{
+        background-color: rgb(161, 47, 146);
+      }
+      .container {
+        width: 300px;
+        border-radius: 10px;
+        margin: 150px auto;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      p {
+        font-size: 40px;
+        font-weight: 700;
+        padding: 20px 0;
+      }
+      h5{
+        text-align: center;
+        padding: 20px 40px;
+      }
+      button{
+        padding:10px 70px;
+        margin:30px 0;
+        background-color: green;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Welcome</p>
+      <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ab cupiditate quae accusantium vero, facilis consectetur voluptas nam dolore dicta, numquam temporibus placeat ad nemo corrupti ea dolores at. Optio.</h5>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </body>
+  <script>
+    alert("you have successfully login")
+    function logout() {
+        window.location.href = "login.html";
+      }
+  </script>
+</html>

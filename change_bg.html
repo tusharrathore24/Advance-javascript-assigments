@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        height: 50px;
+        width: 300px;
+        font-size: 18px;
+        font-weight: bolder;
+      }
+      div {
+        margin: 250px 500px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body id="col">
+    <div>
+      <button onclick="change()">Change BG Color</button><br><br>
+      <span id="colorcode"></span>
+    </div>
+  </body>
+  <script>
+    function change() {
+      // Get current background color
+      var currentColor = document.getElementById("col").style.backgroundColor;
+      
+      if (currentColor === "red") {
+        document.getElementById("col").style.backgroundColor = "white";
+        document.querySelector("button").style.backgroundColor = "white";
+        document.getElementById("colorcode").innerHTML = "#FFFFFF";
+      } else {
+        document.getElementById("col").style.backgroundColor = "red";
+        document.querySelector("button").style.backgroundColor = "red";
+        document.getElementById("colorcode").innerHTML = "#FF0000";
+      }
+    }
+  </script>
+</html>

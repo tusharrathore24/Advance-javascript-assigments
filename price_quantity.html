@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        color: white;
+        background-color: rgb(233, 80, 80);
+        height: 32px;
+        width: 70px;
+        border: none;
+      }
+      input {
+        height: 20px;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="2" cellspacing="0" cellpadding="15">
+      <tr>
+        <td>Product info</td>
+        <td>Quantity</td>
+        <td>
+          Price(per<br />
+          unit)
+        </td>
+        <td>Price<br />(subtotal)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          Fortunta Window Hardware-Decorative<br />
+          Holdbacks-Mocha
+        </td>
+        <td>
+          <input type="number" id="first" oninput="calculateSubtotal()" />
+        </td>
+        <td>$29.99</td>
+        <td id="sub1"></td>
+        <td><button onclick="remove(this)">Remove</button></td>
+      </tr>
+      <tr>
+        <td>Woman Trellis Window Hardware-Clip<br />Rings-Bronze</td>
+        <td>
+          <input type="number" id="second" oninput="calculateSubtotal()" />
+        </td>
+        <td>$12.99</td>
+        <td id="sub2"></td>
+        <td><button onclick="remove(this)">Remove</button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td id="final"></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    function calculateSubtotal() {
+      const quantity1 = document.getElementById("first").value;
+      const quantity2 = document.getElementById("second").value ;
+
+      const price1 = 29.99;
+      const price2 = 12.99;
+
+      const subtotal1 = quantity1 * price1;
+      const subtotal2 = quantity2 * price2;
+
+      document.getElementById("sub1").innerText = `$${subtotal1.toFixed(2)}`;
+      document.getElementById("sub2").innerText = `$${subtotal2.toFixed(2)}`;
+
+      const grandTotal = subtotal1 + subtotal2;
+      console.log(grandTotal);
+      
+      document.getElementById("final").innerText = `$${grandTotal.toFixed(2)}`;
+    }
+    function remove(button) {
+      const row = button.parentNode.parentNode;
+      row.remove();
+      calculateSubtotal()
+    } 
+  </script>
+</html>

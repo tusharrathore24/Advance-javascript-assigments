@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        background-color: rgb(161, 47, 146);
+      }
+      .container {
+        width: 300px;
+        border-radius: 10px;
+        margin: 100px auto;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      p {
+        font-size: 40px;
+        font-weight: 700;
+      }
+      label {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap:-10px;
+      }
+      input{
+        height: 30px;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+      }
+      button{
+        padding:10px 70px;
+        margin:20px 0;
+        background-color: green;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Login</p>
+      <form id="form" name="formin" onsubmit="login(event)">
+        <label>Username:</label><br />
+        <input type="text" name="username" id="username" /><br>
+        <label>Password:</label><br />
+        <input type="password" name="password" id="password" /><br>
+        <button>Login</button>
+      </form>
+      
+    </div>
+  </body>
+  <script>
+    function login(event) {
+        event.preventDefault(); // Prevent form from submitting traditionally
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        const usernamePattern = /^[a-zA-Z0-9]{5,12}$/;
+        const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{4,}$/;
+        
+        if ((usernamePattern.test(username)) && (passwordPattern.test(password))) {
+          window.location.href="logout.html"
+          
+        }
+        else{
+          alert("invalid username or password");
+          return false;
+        }
+      }
+
+  </script>
+</html>
